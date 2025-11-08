@@ -25,7 +25,7 @@ const Home = () => {
       {/* Custom Cursor */}
       <div
         id="cursor"
-        className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-[9999] rounded-full bg-black"
+        className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-9999 rounded-full bg-black"
       />
 
       <div className="w-full min-h-screen bg-white text-black flex flex-col">
@@ -64,7 +64,7 @@ const Home = () => {
           <img
             src={heroImage}
             alt="Developer"
-            className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-left-top"
+            className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-top-left"
           />
         </div>
 
