@@ -60,11 +60,11 @@ const Home = () => {
         </div>
 
         {/* ===== Section 2: Hero Image ===== */}
-        <div className="w-full h-screen relative">
+        <div className="w-full relative">
           <img
             src={heroImage}
             alt="Designer"
-            className="w-full h-full object-cover"
+            className="w-full h-[60vh] sm:h-[70vh] md:h-screen object-cover object-center"
           />
         </div>
 
