@@ -31,7 +31,7 @@ const Home = () => {
       <div className="w-full min-h-screen bg-white text-black flex flex-col">
 
         {/* ===== Section 1: Name ===== */}
-        <div className="relative w-full h-[400px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
+        <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
           <div>
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
