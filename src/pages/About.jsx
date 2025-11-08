@@ -61,7 +61,7 @@ const About = () => {
               className="mt-6 sm:mt-10 md:mt-12 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.2rem] xl:text-[4.8rem] font-semibold leading-tight sm:leading-snug md:leading-none tracking-tight"
             >
               TRANSFORMING <br />
-              CONCEPTS <span className="text-[#C3FE00] px-1">INTO</span> <br />
+              CONCEPTS <span className="text-[#3C01FF] px-1">INTO</span> <br />
               SCALABLE <br />
               SOLUTIONS
             </h1>
@@ -75,7 +75,7 @@ const About = () => {
           >
             <div className="flex items-center justify-between mb-2 sm:mb-4">
               <span className="text-base sm:text-lg opacity-80">About Me</span>
-              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#C3FE00] text-black flex items-center justify-center font-bold">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#3C01FF] text-black flex items-center justify-center font-bold">
                 ✶
               </div>
             </div>

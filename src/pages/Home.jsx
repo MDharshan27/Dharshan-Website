@@ -42,7 +42,7 @@ const Home = () => {
             </h1>
 
             <p
-              className="text-lg font-semibold sm:text-xl md:text-2xl text-[#5285eb] mt-2"
+              className="text-lg font-semibold sm:text-xl md:text-2xl text-[#3C01FF] mt-2"
               onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
@@ -80,7 +80,7 @@ const Home = () => {
                 onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               >
-                Hi, I'm <span className="text-[#5285eb] font-semibold">Sandran Kumaran Mohana Dharshan</span> — a graduate of <span className="text-[#5285eb] font-semibold">Cardiff Metropolitan University</span> with an HND in Computing and Software Engineering. I specialize in web and mobile app development, with a growing interest in desktop applications, continuously expanding my skills across platforms.
+                Hi, I'm <span className="text-[#3C01FF] font-semibold">Sandran Kumaran Mohana Dharshan</span> — a graduate of <span className="text-[#3C01FF] font-semibold">Cardiff Metropolitan University</span> with an HND in Computing and Software Engineering. I specialize in web and mobile app development, with a growing interest in desktop applications, continuously expanding my skills across platforms.
               </h1>
             </div>
 
