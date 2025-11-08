@@ -31,12 +31,12 @@ const Home = () => {
       <div className="w-full min-h-screen bg-white text-black flex flex-col">
 
         {/* ===== Section 1: Name ===== */}
-        <div className="relative w-full h-[350px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
+        <div className="relative w-full h-[400px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
           <div>
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] mt-5 sm:mt-10 font-semibold leading-snug tracking-tight"
+              className="mt-3 sm:mt-5 md:mt-10 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-snug tracking-tight"
             >
               MOHANADHARSHAN <br /> SANDRANKUMARAN
             </h1>
