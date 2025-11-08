@@ -165,7 +165,7 @@ const About = () => {
               Strives for continuous learning, collaboration, and excellence in every project.
             </p>
 
-            <a href="/works">
+            <a href="/work">
               <img
                 src={arrowImage}
                 alt="Go to Works"

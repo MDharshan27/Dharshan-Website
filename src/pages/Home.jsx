@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import heroImage from "../assets/man.jpg";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -95,13 +94,13 @@ const Home = () => {
                 onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               >
-                <Link
-                  to="/about" // <- same as { path: "/about", label: "About" }
+                <a
+                  href="/about"
                   className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer flex items-center gap-2 hover:text-gray-800 transition"
                 >
                   About Me
                   <span className="inline-block rotate-225">↓</span>
-                </Link>
+                </a>
               </div>
 
               <div className="flex justify-end gap-2 mt-8">
