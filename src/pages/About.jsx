@@ -97,7 +97,7 @@ const About = () => {
             {/* Top Box */}
             <div className="relative flex-1 bg-gray-200 rounded-3xl flex items-center justify-center overflow-visible h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px]">
               {/* Circular Text + Star */}
-              <div className="absolute -top-16 -left-16 w-36 h-36 sm:w-40 sm:h-40 flex items-center justify-center">
+              <div className="absolute -top-20 -left-20 w-36 h-36 sm:w-40 sm:h-40 flex items-center justify-center">
                 <svg className="absolute w-full h-full" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <path id="circlePath" d="M60,5 a55,55 0 1,1 -0.1,0" />
