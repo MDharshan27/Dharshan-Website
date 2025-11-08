@@ -73,7 +73,7 @@ const Menu = () => {
       />
 
       {/* Top Bar */}
-      <div className="fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-60 mb-6">
+      <div className="fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-60">
         {/* Logo */}
         <div
           className={`font-semibold text-2xl cursor-pointer transition-colors duration-300 ${
