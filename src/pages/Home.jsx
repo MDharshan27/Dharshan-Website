@@ -60,11 +60,11 @@ const Home = () => {
         </div>
 
         {/* ===== Section 2: Hero Image ===== */}
-        <div className="w-full relative">
+        <div className="w-full relative flex justify-center items-center overflow-hidden">
           <img
             src={heroImage}
-            alt="Designer"
-            className="w-full h-[60vh] sm:h-[70vh] md:h-screen object-cover object-center"
+            alt="Developer"
+            className="min-w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-screen object-cover"
           />
         </div>
 
