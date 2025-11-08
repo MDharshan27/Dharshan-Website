@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import heroImage from "../assets/man.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -89,11 +90,18 @@ const Home = () => {
               className="bg-white p-6 sm:p-10 md:p-16 flex flex-col justify-between"
               style={{ flexBasis: "30%" }}
             >
-              <div className="flex justify-end mb-4"
+              <div
+                className="flex justify-end mb-4"
                 onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               >
-                <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me </p>
+                <Link
+                  to="/about" // <- same as { path: "/about", label: "About" }
+                  className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer flex items-center gap-2 hover:text-gray-800 transition"
+                >
+                  About Me
+                  <span className="inline-block rotate-225">↓</span>
+                </Link>
               </div>
 
               <div className="flex justify-end gap-2 mt-8">

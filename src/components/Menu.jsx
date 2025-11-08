@@ -135,39 +135,64 @@ const Menu = () => {
           </div>
 
           {/* Contact + Socials */}
-          <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
-            <div className="flex flex-col space-y-2">
-              {["X ↗", "Instagram ↗", "LinkedIn ↗", "GitHub ↗", "WhatsApp ↗"].map(
-                (txt, i) => (
+            <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
+              {/* Social Links */}
+              <div className="flex flex-col space-y-2">
+                {[
+                  { label: "X ↗", url: "https://twitter.com/yourhandle" },
+                  { label: "Instagram ↗", url: "https://instagram.com/yourhandle" },
+                  { label: "LinkedIn ↗", url: "https://linkedin.com/in/yourhandle" },
+                  { label: "GitHub ↗", url: "https://github.com/yourhandle" },
+                  { label: "WhatsApp ↗", url: "https://wa.me/94778597438" },
+                ].map((social, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-black hover:text-gray-700 text-sm"
                     onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
                     onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
                   >
-                    {txt}
+                    {social.label}
                   </a>
-                )
-              )}
-            </div>
+                ))}
+              </div>
 
-            <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
-              <p className="text-black text-sm">santhosmd69@gmail.com</p>
-              <p className="text-black text-sm">+94 77 8597 438</p>
+              {/* Contact Info */}
+              <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
+                <a
+                  href="mailto:santhosmd69@gmail.com"
+                  className="text-black text-sm hover:text-gray-700"
+                  onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                >
+                  santhosmd69@gmail.com
+                </a>
+                <a
+                  href="tel:+94778597438"
+                  className="text-black text-sm hover:text-gray-700"
+                  onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                >
+                  +94 77 8597 438
+                </a>
+              </div>
             </div>
-          </div>
         </div>
 
         {/* Right Preview */}
         <div className="flex-1 flex justify-end items-end">
-          <p
-            className="text-black text-sm font-medium cursor-pointer hover:text-gray-700 mb-4"
+          <a
+            href="https://mdharshan27.github.io/Protfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black text-sm cursor-pointer hover:text-gray-700 mb-4 inline-block"
             onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
             onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
           >
             Check Out Old
-          </p>
+          </a>
         </div>
       </div>
     </div>
