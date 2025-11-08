@@ -31,24 +31,30 @@ const Home = () => {
       <div className="w-full min-h-screen bg-white text-black flex flex-col">
 
         {/* ===== Section 1: Name ===== */}
-        <div className="relative w-full h-[300px] flex flex-col justify-start items-start p-10">
+        <div className="relative w-full h-[300px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
           <div>
             <h1
-              onMouseEnter={() =>gsap.to("#cursor", { scale: 5, duration: 0.3 })}
+              onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="text-[5vw] font-semibold leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-snug tracking-tight"
             >
               MOHANADHARSHAN <br /> SANDRANKUMARAN
             </h1>
-            <p className="text-2xl text-[#5285eb] mt-2"
-              onMouseEnter={() =>gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+
+            <p
+              className="text-lg sm:text-xl md:text-2xl text-[#5285eb] mt-2"
+              onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
               Innovating Web & Mobile Applications
             </p>
-            <p className="text-sm text-gray-800 mt-2">(Hatton, Sri Lanka)</p>
+
+            <p className="text-xs sm:text-sm md:text-base text-gray-800 mt-2">
+              (Hatton, Sri Lanka)
+            </p>
           </div>
-          <div className="absolute bottom-6 right-10 flex items-center gap-2 text-gray-800 text-sm">
+
+          <div className="absolute bottom-6 right-6 sm:right-8 md:right-10 flex items-center gap-2 text-gray-800 text-sm">
             <span className="animate-bounce">↓</span> Scroll Down
           </div>
         </div>
@@ -62,14 +68,14 @@ const Home = () => {
           />
         </div>
 
-        <div className="w-full flex">
+        <div className="w-full flex flex-col md:flex-row">
           {/* Left Box - Text Content (70%) */}
           <div
-            className="bg-white p-10 md:p-16 border-r border-gray-200"
-            style={{ width: "70%" }}   
+            className="bg-white p-6 sm:p-10 md:p-16 border-b md:border-b-0 md:border-r border-gray-200"
+            style={{ flexBasis: "70%" }}
           >
             <h1
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug"
               onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
@@ -79,15 +85,16 @@ const Home = () => {
 
           {/* Right Box - About Me (30%) */}
           <div
-            className="bg-white p-10 md:p-16 flex flex-col justify-between"
-            style={{ width: "30%" }}
+            className="bg-white p-6 sm:p-10 md:p-16 flex flex-col justify-between"
+            style={{ flexBasis: "30%" }}
           >
-            <div className="flex justify-end"
+            <div className="flex justify-end mb-4"
               onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
-              <p className="text-lg text-gray-600">About Me ↗</p>
+              <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me ↗</p>
             </div>
+
             <div className="flex justify-end gap-2 mt-8">
               <span className="w-3 h-3 bg-black rounded-full"></span>
               <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
