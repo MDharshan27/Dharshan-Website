@@ -1,0 +1,177 @@
+import React, { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+const menuLinks = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/work", label: "Work" },
+  { path: "/project", label: "Project" },
+  { path: "/contact", label: "Contact" },
+];
+
+const Menu = () => {
+  const container = useRef();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const tl = useRef();
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // GSAP for menu animation
+  useGSAP(() => {
+    gsap.set(".menu-link-item-holder", { y: 75 });
+
+    tl.current = gsap
+      .timeline({ paused: true })
+      .to(".menu-overlay", {
+        duration: 1.25,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "power4.inOut",
+      })
+      .to(
+        ".menu-link-item-holder",
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power4.inOut",
+          delay: -0.75,
+        }
+      );
+  }, { scope: container });
+
+  useEffect(() => {
+    if (isMenuOpen) tl.current.play();
+    else tl.current.reverse();
+  }, [isMenuOpen]);
+
+  // Spotlight cursor effect
+  useEffect(() => {
+    const cursor = document.getElementById("cursor");
+
+    const handleMouseMove = (event) => {
+      const { clientX, clientY } = event;
+      gsap.to(cursor, {
+        x: clientX - 25 / 2, 
+        y: clientY - 25 / 2,
+        duration: 1,
+        ease: "power3.out",
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div ref={container} className="fixed top-0 left-0 w-full z-50">
+
+      {/* Spotlight Cursor */}
+      <div
+        id="cursor"
+        className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-9999 rounded-full"
+      />
+
+      {/* Top Bar */}
+      <div className="fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-60">
+        {/* Logo */}
+        <div
+          className={`font-semibold text-2xl cursor-pointer transition-colors duration-300 ${
+            isMenuOpen ? "text-black" : "text-white"
+          }`}
+        >
+          {/* Logo text or image */}
+        </div>
+
+        {/* Menu Toggle */}
+        <div
+          onClick={toggleMenu}
+          onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+          onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+          className={`uppercase cursor-pointer text-sm tracking-wide transition-colors duration-300 ${
+            isMenuOpen ? "text-black" : "text-black"
+          }`}
+        >
+          {isMenuOpen ? "x Close" : "+ Menu"}
+        </div>
+      </div>
+
+      {/* Overlay */}
+      <div
+        className="menu-overlay fixed top-0 left-0 w-screen h-screen bg-[#C3FE00] flex flex-col md:flex-row px-8 py-6 z-55 overflow-hidden"
+        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
+      >
+        {/* Left Large X Icon */}
+        <div className="hidden md:flex flex-1 items-end cursor-pointer select-none">
+          <p
+            className="text-[120px] font-bold text-black/10 leading-none"
+            onClick={toggleMenu}
+          >
+            ×
+          </p>
+        </div>
+
+        {/* Center Links + Info */}
+        <div className="flex-3 flex flex-col justify-between md:pt-10 pt-24">
+          {/* Menu Links */}
+          <div className="space-y-3 overflow-hidden">
+            {menuLinks.map((link, index) => (
+              <div className="menu-link-item overflow-hidden" key={index}>
+                <div
+                  className="menu-link-item-holder inline-block transform translate-y-[75px]"
+                  onClick={toggleMenu}
+                  onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
+                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                >
+                  <a
+                    href={link.path}
+                    className="text-black text-5xl md:text-7xl font-light tracking-tight leading-[85%] hover:text-gray-700 transition"
+                  >
+                    {link.label}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Contact + Socials */}
+          <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
+            <div className="flex flex-col space-y-2">
+              {["X ↗", "Instagram ↗", "LinkedIn ↗", "GitHub ↗", "WhatsApp ↗"].map(
+                (txt, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="text-black hover:text-gray-700 text-sm"
+                    onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+                    onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                  >
+                    {txt}
+                  </a>
+                )
+              )}
+            </div>
+
+            <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
+              <p className="text-black text-sm">santhosmd69@gmail.com</p>
+              <p className="text-black text-sm">+94 77 8597 438</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Preview */}
+        <div className="flex-1 flex justify-end items-end">
+          <p
+            className="text-black text-sm font-medium cursor-pointer hover:text-gray-700 mb-4"
+            onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+            onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+          >
+            Check Out Old
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Menu;
