@@ -36,7 +36,7 @@ const Home = () => {
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="mt-3 sm:mt-5 md:mt-10 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-snug tracking-tight"
+              className="mt-3 sm:mt-10 md:mt-10 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-snug tracking-tight"
             >
               MOHANADHARSHAN <br /> SANDRANKUMARAN
             </h1>
