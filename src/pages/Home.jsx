@@ -9,8 +9,8 @@ const Home = () => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
       gsap.to(cursor, {
-        x: clientX - 12.5, // cursor size 25 / 2
-        y: clientY - 12.5,
+        x: clientX - 25 / 2, 
+        y: clientY - 25 / 2,
         duration: 1,
         ease: "power3.out",
       });
@@ -22,10 +22,10 @@ const Home = () => {
 
   return (
     <>
-      {/* Custom Cursor */}
+      {/* Spotlight Cursor (works on all sections) */}
       <div
         id="cursor"
-        className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-9999 rounded-full bg-black"
+        className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-9999 rounded-full"
       />
 
       <div className="w-full min-h-screen bg-white text-black flex flex-col">
@@ -60,49 +60,50 @@ const Home = () => {
         </div>
 
         {/* ===== Section 2: Hero Image ===== */}
-        <div className="w-full relative flex justify-start items-center overflow-hidden">
-          <img
-            src={heroImage}
-            alt="Developer"
-            className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-top-left"
-          />
-        </div>
-
-        {/* ===== Section 3: Text Content ===== */}
-        <div className="w-full flex flex-col md:flex-row">
-          {/* Left Box - Text Content (70%) */}
-          <div
-            className="bg-white p-6 sm:p-10 md:p-16 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-center"
-            style={{ flexBasis: "70%" }}
-          >
-            <h1
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug"
-              onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
-              onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            >
-              Hi, I'm <span className="text-[#5285eb] font-semibold">Sandran Kumaran Mohana Dharshan</span> — a graduate of <span className="text-[#5285eb] font-semibold">Cardiff Metropolitan University</span> with an HND in Computing and Software Engineering. I specialize in web and mobile app development, with a growing interest in desktop applications, continuously expanding my skills across platforms.
-            </h1>
+          <div className="w-full relative flex justify-start items-center overflow-hidden">
+            <img
+              src={heroImage}
+              alt="Developer"
+              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-left"
+            />
           </div>
 
-          {/* Right Box - About Me (30%) */}
-          <div
-            className="bg-white p-6 sm:p-10 md:p-16 flex flex-col justify-between"
-            style={{ flexBasis: "30%" }}
-          >
-            <div className="flex justify-end mb-4"
-              onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
-              onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+          {/* ===== Section 3: Text Content ===== */}
+          <div className="w-full flex flex-col md:flex-row">
+            {/* Left Box - Text Content (70%) */}
+            <div
+              className="bg-white p-6 sm:p-10 md:p-16 border-b md:border-b-0 md:border-r border-gray-200 flex items-start justify-start"
+              style={{ flexBasis: "70%" }}
             >
-              <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me ↗</p>
+              <h1
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug"
+                onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
+                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              >
+                Hi, I'm <span className="text-[#5285eb] font-semibold">Sandran Kumaran Mohana Dharshan</span> — a graduate of <span className="text-[#5285eb] font-semibold">Cardiff Metropolitan University</span> with an HND in Computing and Software Engineering. I specialize in web and mobile app development, with a growing interest in desktop applications, continuously expanding my skills across platforms.
+              </h1>
             </div>
 
-            <div className="flex justify-end gap-2 mt-8">
-              <span className="w-3 h-3 bg-black rounded-full"></span>
-              <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-              <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+            {/* Right Box - About Me (30%) */}
+            <div
+              className="bg-white p-6 sm:p-10 md:p-16 flex flex-col justify-between"
+              style={{ flexBasis: "30%" }}
+            >
+              <div className="flex justify-end mb-4"
+                onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              >
+                <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me ↗</p>
+              </div>
+
+              <div className="flex justify-end gap-2 mt-8">
+                <span className="w-3 h-3 bg-black rounded-full"></span>
+                <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+                <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+              </div>
             </div>
           </div>
-        </div>
+
       </div>
     </>
   );

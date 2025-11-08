@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 const CustomScrollbar = ({ children }) => {
   const containerRef = useRef(null);
   const thumbRef = useRef(null);
-  const [trackHeight, setTrackHeight] = useState(100);
+  const [trackHeight, setTrackHeight] = useState(120);
   const thumbHeight = 30;
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const CustomScrollbar = ({ children }) => {
 
     // Update thumb on resize
     const handleResize = () => {
-      setTrackHeight(100);
+      setTrackHeight(120);
       handleScroll();
     };
     window.addEventListener("resize", handleResize);
