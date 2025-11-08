@@ -42,7 +42,7 @@ const Home = () => {
             </h1>
 
             <p
-              className="text-lg sm:text-xl md:text-2xl text-[#5285eb] mt-2"
+              className="text-lg font-semibold sm:text-xl md:text-2xl text-[#5285eb] mt-2"
               onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
