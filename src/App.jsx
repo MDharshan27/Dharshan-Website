@@ -12,14 +12,10 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      {/* Global Menu */}
-      <Menu />
-
-      {/* Global Custom Cursor */}
-      <Cursor />
-
-      {/* Scrollable Main Container with Custom Scrollbar */}
       <CustomScrollbar>
+        <Menu />
+        <Cursor />
+
         <div className="w-full min-h-screen">
           <Routes>
             <Route path="/" element={<Home />} />

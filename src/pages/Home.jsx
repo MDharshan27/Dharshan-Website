@@ -93,7 +93,7 @@ const Home = () => {
                 onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               >
-                <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me ↗</p>
+                <p className="text-base sm:text-lg md:text-lg text-gray-600 font-medium cursor-pointer">About Me </p>
               </div>
 
               <div className="flex justify-end gap-2 mt-8">
