@@ -17,28 +17,36 @@ const Menu = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // GSAP for menu animation
-  useGSAP(() => {
-    gsap.set(".menu-link-item-holder", { y: 75 });
+  const handleLinkClick = (path) => {
+    tl.current.reverse();
+    setTimeout(() => {
+      window.location.href = path;
+    }, 1250);
+  };
 
-    tl.current = gsap
-      .timeline({ paused: true })
-      .to(".menu-overlay", {
-        duration: 1.25,
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        ease: "power4.inOut",
-      })
-      .to(
-        ".menu-link-item-holder",
-        {
-          y: 0,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power4.inOut",
-          delay: -0.75,
-        }
-      );
-  }, { scope: container });
+  useGSAP(
+    () => {
+      tl.current = gsap.timeline({ paused: true });
+
+      tl.current
+        .fromTo(
+          ".menu-overlay",
+          { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", display: "flex" },
+          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1.25, ease: "power4.inOut" }
+        )
+        .fromTo(
+          ".menu-link-item-holder",
+          { y: 75 },
+          { y: 0, duration: 1, stagger: 0.1, ease: "power4.inOut", delay: -0.75 }
+        );
+
+      // Hide overlay after reverse animation
+      tl.current.eventCallback("onReverseComplete", () => {
+        gsap.set(".menu-overlay", { display: "none" });
+      });
+    },
+    { scope: container }
+  );
 
   useEffect(() => {
     if (isMenuOpen) tl.current.play();
@@ -52,7 +60,7 @@ const Menu = () => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
       gsap.to(cursor, {
-        x: clientX - 25 / 2, 
+        x: clientX - 25 / 2,
         y: clientY - 25 / 2,
         duration: 1,
         ease: "power3.out",
@@ -65,7 +73,6 @@ const Menu = () => {
 
   return (
     <div ref={container} className="fixed top-0 left-0 w-full z-50">
-
       {/* Spotlight Cursor */}
       <div
         id="cursor"
@@ -103,10 +110,7 @@ const Menu = () => {
       >
         {/* Left Large X Icon */}
         <div className="hidden md:flex flex-1 items-end cursor-pointer select-none">
-          <p
-            className="text-[120px] font-bold text-black/10 leading-none"
-            onClick={toggleMenu}
-          >
+          <p className="text-[120px] font-bold text-black/10 leading-none" onClick={toggleMenu}>
             ×
           </p>
         </div>
@@ -119,66 +123,63 @@ const Menu = () => {
               <div className="menu-link-item overflow-hidden" key={index}>
                 <div
                   className="menu-link-item-holder inline-block transform translate-y-[75px]"
-                  onClick={toggleMenu}
+                  onClick={() => handleLinkClick(link.path)}
                   onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
                   onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
                 >
-                  <a
-                    href={link.path}
-                    className="text-black text-5xl md:text-7xl font-light tracking-tight leading-[85%] hover:text-gray-700 transition"
-                  >
+                  <span className="text-black text-5xl md:text-7xl font-light tracking-tight leading-[85%] hover:text-gray-700 transition cursor-pointer">
                     {link.label}
-                  </a>
+                  </span>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Contact + Socials */}
-            <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
-              {/* Social Links */}
-              <div className="flex flex-col space-y-2">
-                {[
-                  { label: "X ↗", url: "https://twitter.com/yourhandle" },
-                  { label: "Instagram ↗", url: "https://instagram.com/yourhandle" },
-                  { label: "LinkedIn ↗", url: "https://linkedin.com/in/yourhandle" },
-                  { label: "GitHub ↗", url: "https://github.com/yourhandle" },
-                  { label: "WhatsApp ↗", url: "https://wa.me/94778597438" },
-                ].map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black hover:text-gray-700 text-sm"
-                    onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                    onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Contact Info */}
-              <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
+          <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
+            {/* Social Links */}
+            <div className="flex flex-col space-y-2">
+              {[
+                { label: "X ↗", url: "https://twitter.com/yourhandle" },
+                { label: "Instagram ↗", url: "https://instagram.com/yourhandle" },
+                { label: "LinkedIn ↗", url: "https://linkedin.com/in/yourhandle" },
+                { label: "GitHub ↗", url: "https://github.com/yourhandle" },
+                { label: "WhatsApp ↗", url: "https://wa.me/94778597438" },
+              ].map((social, i) => (
                 <a
-                  href="mailto:santhosmd69@gmail.com"
-                  className="text-black text-sm hover:text-gray-700"
+                  key={i}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:text-gray-700 text-sm"
                   onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
                   onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
                 >
-                  santhosmd69@gmail.com
+                  {social.label}
                 </a>
-                <a
-                  href="tel:+94778597438"
-                  className="text-black text-sm hover:text-gray-700"
-                  onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-                >
-                  +94 77 8597 438
-                </a>
-              </div>
+              ))}
             </div>
+
+            {/* Contact Info */}
+            <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
+              <a
+                href="mailto:santhosmd69@gmail.com"
+                className="text-black text-sm hover:text-gray-700"
+                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              >
+                santhosmd69@gmail.com
+              </a>
+              <a
+                href="tel:+94778597438"
+                className="text-black text-sm hover:text-gray-700"
+                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
+                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              >
+                +94 77 8597 438
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Right Preview */}
