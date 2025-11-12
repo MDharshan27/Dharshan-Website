@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const ExperienceCard = ({ period, company, role, description }) => (
-  <div className="p-6 sm:p-8 flex flex-col justify-between w-full border bg-[#e8ff8a] border-gray-200 rounded-xl">
+  <div className="p-6 sm:p-8 flex flex-col justify-between w-full border border-gray-200 rounded-xl">
     <h3 className="text-sm sm:text-base text-[#3C01FF] font-semibold mb-2">
       {period}
     </h3>
