@@ -4,6 +4,7 @@ import starImage from "../assets/star.png";
 import topBoxImage from "../assets/man.jpg";
 import arrowImage from "../assets/arrow.png";
 import Experience from "../components/Experience";
+import Education from "../components/Education";
 
 const Chip = ({ children }) => (
   <span className="bg-black text-white text-xs py-1 px-3 rounded-full inline-block">
@@ -178,6 +179,7 @@ const About = () => {
 
           </div>
         </div>
+        <Education/>
         <Experience/>
       </section>
     </>
