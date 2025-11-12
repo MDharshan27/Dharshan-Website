@@ -54,7 +54,7 @@ const Experience = () => {
             description="Currently contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
           />
           <ExperienceCard
-            period="2024 – PRESENT"
+            period="2025 – PRESENT"
             company="HustleMind Co."
             role="Freelance Software Developer"
             description="Co-founded and operate a freelance team delivering custom web/mobile software for small businesses. Collaborate on full-stack projects using HTML, SQL, Java, and C#. Handle project roles, client communication, and source control."
