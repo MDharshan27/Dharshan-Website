@@ -15,7 +15,13 @@ const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    if (!isMenuOpen) {
+      // Ensure overlay is visible before playing
+      gsap.set(".menu-overlay", { display: "flex" });
+    }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleLinkClick = (path) => {
     tl.current.reverse();
@@ -31,7 +37,7 @@ const Menu = () => {
       tl.current
         .fromTo(
           ".menu-overlay",
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", display: "flex" },
+          { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" },
           { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1.25, ease: "power4.inOut" }
         )
         .fromTo(
@@ -40,8 +46,8 @@ const Menu = () => {
           { y: 0, duration: 1, stagger: 0.1, ease: "power4.inOut", delay: -0.75 }
         );
 
-      // Hide overlay after reverse animation
       tl.current.eventCallback("onReverseComplete", () => {
+        // Hide overlay after reverse animation
         gsap.set(".menu-overlay", { display: "none" });
       });
     },
@@ -60,9 +66,9 @@ const Menu = () => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
       gsap.to(cursor, {
-        x: clientX - 25 / 2,
-        y: clientY - 25 / 2,
-        duration: 1,
+        x: clientX - 12.5,
+        y: clientY - 12.5,
+        duration: 0.6,
         ease: "power3.out",
       });
     };
@@ -81,23 +87,15 @@ const Menu = () => {
 
       {/* Top Bar */}
       <div className="fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-60">
-        {/* Logo */}
-        <div
-          className={`font-semibold text-2xl cursor-pointer transition-colors duration-300 ${
-            isMenuOpen ? "text-black" : "text-white"
-          }`}
-        >
-          {/* Logo text or image */}
+        <div className={`font-semibold text-2xl cursor-pointer transition-colors duration-300 ${isMenuOpen ? "text-black" : "text-white"}`}>
+          {/* Logo */}
         </div>
 
-        {/* Menu Toggle */}
         <div
           onClick={toggleMenu}
           onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
           onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-          className={`uppercase cursor-pointer text-sm tracking-wide transition-colors duration-300 ${
-            isMenuOpen ? "text-black" : "text-black"
-          }`}
+          className="uppercase cursor-pointer text-sm tracking-wide transition-colors duration-300 text-black"
         >
           {isMenuOpen ? "x Close" : "+ Menu"}
         </div>
@@ -106,9 +104,9 @@ const Menu = () => {
       {/* Overlay */}
       <div
         className="menu-overlay fixed top-0 left-0 w-screen h-screen bg-[#C3FE00] flex flex-col md:flex-row px-8 py-6 z-55 overflow-hidden"
-        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
+        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", display: "none" }}
       >
-        {/* Left Large X Icon */}
+        {/* Left X Icon */}
         <div className="hidden md:flex flex-1 items-end cursor-pointer select-none">
           <p className="text-[120px] font-bold text-black/10 leading-none" onClick={toggleMenu}>
             ×
@@ -117,7 +115,6 @@ const Menu = () => {
 
         {/* Center Links + Info */}
         <div className="flex-3 flex flex-col justify-between md:pt-10 pt-24">
-          {/* Menu Links */}
           <div className="space-y-3 overflow-hidden">
             {menuLinks.map((link, index) => (
               <div className="menu-link-item overflow-hidden" key={index}>
@@ -135,9 +132,8 @@ const Menu = () => {
             ))}
           </div>
 
-          {/* Contact + Socials */}
+          {/* Socials + Contact */}
           <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
-            {/* Social Links */}
             <div className="flex flex-col space-y-2">
               {[
                 { label: "X ↗", url: "https://twitter.com/yourhandle" },
@@ -160,7 +156,6 @@ const Menu = () => {
               ))}
             </div>
 
-            {/* Contact Info */}
             <div className="flex flex-col justify-end space-y-1 mt-6 md:mt-0">
               <a
                 href="mailto:santhosmd69@gmail.com"
