@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import CTA from "../components/CTA";
 
 import Project1 from "../assets/project1.jpg";
 import Project2 from "../assets/project1.jpg";
@@ -196,7 +195,7 @@ const Project = () => {
         </div>
 
         {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-8 p-6 sm:p-8 md:p-10">
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 p-6 sm:p-8 md:p-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -250,7 +249,7 @@ const Project = () => {
 
           {/* EXPLORE MORE BUTTON */}
           {visibleCount < filteredProjects.length && (
-            <div className="col-span-full flex justify-center mt-6">
+            <div className="col-span-full flex justify-center mt-6 mb-0">
               <button
                 onClick={handleLoadMore}
                 onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
@@ -262,7 +261,6 @@ const Project = () => {
             </div>
           )}
         </div>
-        <CTA/>
       </section>
     </>
   );
