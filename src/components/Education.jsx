@@ -43,10 +43,10 @@ const Education = () => {
       <div
         id="cursor"
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-50 bg-black mix-blend-difference"
+        className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-9999 bg-black mix-blend-difference"
       />
 
-      <section className="w-full min-h-screen py-20 flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none">
+      <section className="w-full min-h-screen py-20 flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none px-0 p-6 sm:p-8 md:p-10">
         {/* Heading */}
         <h1
           onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
@@ -57,7 +57,7 @@ const Education = () => {
         </h1>
 
         {/* Education Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
           <EducationCard
             period="2023 - 2025"
             institution="Cardiff Metropolitan University"

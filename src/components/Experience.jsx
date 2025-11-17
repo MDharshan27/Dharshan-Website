@@ -44,21 +44,20 @@ const Experience = () => {
       <div
         id="cursor"
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-50 bg-black mix-blend-difference"
+        className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-9999 bg-black mix-blend-difference"
       />
 
       {/* Main Layout */}
-      <section className="w-full min-h-screen py-16 flex flex-col md:flex-row items-start justify-between gap-12">
-
+      <section className="w-full min-h-screen py-16 flex flex-col md:flex-row items-start justify-between gap-12 px-0 p-6 sm:p-8 md:p-10">
         {/* LEFT — Big Heading */}
-        <div className="flex-1 flex justify-start md:justify-end w-full pr-0 md:pr-10">
+        <div className="flex-1 w-full flex justify-start md:justify-start">
           <h1
             onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
             onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            className="text-left text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[4rem] xl:text-[4.8rem] font-semibold leading-tight tracking-tight"
+            className="text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[4rem] xl:text-[4.8rem] font-semibold leading-tight tracking-tight"
           >
             MY EXPERIENCE <br />
-            IN <span className="text-[#3C01FF]">SOFTWARE <br /> DEVELOPMENT</span> <br />
+            IN <span className="text-[#3C01FF]" >SOFTWARE <br /> DEVELOPMENT</span> <br />
             & DESIGN
           </h1>
         </div>

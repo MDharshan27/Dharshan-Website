@@ -28,7 +28,7 @@ const Home = () => {
         className="fixed top-0 left-0 h-[25px] w-[25px] pointer-events-none z-9999 rounded-full"
       />
 
-      <div className="w-full min-h-screen bg-white text-black flex flex-col">
+      <section className="w-full min-h-screen bg-white text-black flex flex-col ">
 
         {/* ===== Section 1: Name ===== */}
         <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] flex flex-col justify-start items-start p-6 sm:p-8 md:p-10">
@@ -111,7 +111,7 @@ const Home = () => {
             </div>
           </div>
 
-      </div>
+      </section>
     </>
   );
 };
