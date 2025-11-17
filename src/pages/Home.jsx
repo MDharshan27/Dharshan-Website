@@ -64,7 +64,7 @@ const Home = () => {
             <img
               src={heroImage}
               alt="Developer"
-              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-left"
+              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-right"
             />
           </div>
 
