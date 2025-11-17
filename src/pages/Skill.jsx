@@ -84,7 +84,7 @@ const Skill = () => {
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="w-full h-46 sm:h-36 md:h-32 md:w-42 object-cover rounded-lg shrink-0"
+                    className="w-full h-48 sm:h-40 md:h-32 md:w-42 object-cover rounded-lg shrink-0"
                   />
                   <div className="flex-1">
                     <p className="text-gray-700 mb-2">{cert.description}</p>
