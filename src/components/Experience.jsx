@@ -44,11 +44,22 @@ const Experience = () => {
       />
 
       <section className="w-full min-h-screen py-12 flex flex-col md:flex-row items-start gap-8 md:gap-12">
+
+        {/* Left - Big Text */}
+        <div className="flex-1 flex justify-end items-start w-full">
+          <h1
+            onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
+            onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+            className="text-left text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-snug md:leading-tight tracking-tight mt-0"
+          >
+            MY EXPERIENCE IN <span className="text-[#3C01FF]">SOFTWARE DEVELOPMENT</span> & DESIGN
+          </h1>
+        </div>
         
-        {/* Left - Experience Cards */}
+        {/* Right - Experience Cards */}
         <div className="flex flex-col gap-6 w-full md:w-[550px]">
           <ExperienceCard
-            period="NOW"
+            period="PRESENT"
             company="DevGriffins"
             role="Intern, Frontend Web & Development Team (Volunteer/Intern)"
             description="Currently contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
@@ -65,17 +76,6 @@ const Experience = () => {
             role="Digital Marketing Assistant (Intern)"
             description="Managed product listings and catalog updates for eCommerce platforms. Ensured SEO standards, handled digital content, and maintained accurate databases."
           />
-        </div>
-
-        {/* Right - Big Text */}
-        <div className="flex-1 flex justify-end items-start w-full">
-          <h1
-            onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
-            onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            className="text-right text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-snug md:leading-tight tracking-tight mt-0"
-          >
-            MY EXPERIENCE IN <span className="text-[#3C01FF]">SOFTWARE DEVELOPMENT</span> & DESIGN
-          </h1>
         </div>
       </section>
     </>
