@@ -139,7 +139,7 @@ const About = () => {
           </div>
 
           {/* Right About Card */}
-          <div className="bg-[#e8ff8a] rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative w-full md:w-[800px]">
+          <div className="bg-[#e8ff8a] rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative w-full md:w-[800px] h-[400px] sm:h-[450px]">
             
             {/* Tags / Skills */}
             <div className="flex flex-wrap gap-2 sm:gap-3 mb-4"
