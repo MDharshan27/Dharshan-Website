@@ -6,6 +6,17 @@ import Project1 from "../assets/project1.jpg";
 import Project2 from "../assets/project1.jpg";
 import Project3 from "../assets/project1.jpg";
 import Project4 from "../assets/project1.jpg";
+import Project5 from "../assets/project1.jpg";
+import Project6 from "../assets/project1.jpg";
+import Project7 from "../assets/project1.jpg";
+import Project8 from "../assets/project1.jpg";
+import Project9 from "../assets/project1.jpg";
+import Project10 from "../assets/project1.jpg";
+import Project11 from "../assets/project1.jpg";
+import Project12 from "../assets/project1.jpg";
+import Project13 from "../assets/project1.jpg";
+import Project14 from "../assets/project1.jpg";
+import Project15 from "../assets/project1.jpg";
 
 const Project = () => {
   const cursorRef = useRef(null);
@@ -34,21 +45,98 @@ const Project = () => {
     },
     {
       id: 4,
-      title: "SOLOFOLIO",
+      title: "SOLOFOLIO Mini",
       category: "Mini Projects",
       description: "A small creative project demonstrating frontend skills.",
       image: Project4,
     },
+    {
+      id: 5,
+      title: "MarketFlow",
+      category: "Web Design",
+      description: "E-commerce platform with a responsive and modern layout.",
+      image: Project5,
+    },
+    {
+      id: 6,
+      title: "TravelMate",
+      category: "Mobile App",
+      description: "A mobile app for planning and booking travel itineraries.",
+      image: Project6,
+    },
+    {
+      id: 7,
+      title: "TaskMaster",
+      category: "Desktop App",
+      description: "Productivity desktop app with task tracking and notifications.",
+      image: Project7,
+    },
+    {
+      id: 8,
+      title: "Weatherly",
+      category: "Mini Projects",
+      description: "A mini project showing live weather data using an API.",
+      image: Project8,
+    },
+    {
+      id: 9,
+      title: "CryptoDash",
+      category: "Web Design",
+      description: "Dashboard website to track cryptocurrency prices in real-time.",
+      image: Project9,
+    },
+    {
+      id: 10,
+      title: "FitTrack",
+      category: "Mobile App",
+      description: "Fitness tracker mobile app with goal setting and statistics.",
+      image: Project10,
+    },
+    {
+      id: 11,
+      title: "NoteHub",
+      category: "Desktop App",
+      description: "Desktop note-taking app with markdown support and sync.",
+      image: Project11,
+    },
+    {
+      id: 12,
+      title: "MiniQuiz",
+      category: "Mini Projects",
+      description: "A small quiz app demonstrating interactive JavaScript features.",
+      image: Project12,
+    },
+    {
+      id: 13,
+      title: "ShopEase",
+      category: "Web Design",
+      description: "Modern e-commerce website with smooth UI and cart features.",
+      image: Project13,
+    },
+    {
+      id: 14,
+      title: "RecipeGo",
+      category: "Mobile App",
+      description: "Mobile app that provides easy-to-follow recipes and shopping lists.",
+      image: Project14,
+    },
+    {
+      id: 15,
+      title: "MiniPaint",
+      category: "Mini Projects",
+      description: "A small interactive drawing app built with HTML5 canvas.",
+      image: Project15,
+    },
   ];
 
+  const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Projects"];
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(10); // initially show 10 projects
 
   const filteredProjects =
     selectedCategory === "All"
       ? allProjects
       : allProjects.filter((p) => p.category === selectedCategory);
-
-  const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Projects"];
 
   // Custom cursor follow effect
   useEffect(() => {
@@ -65,6 +153,10 @@ const Project = () => {
     return () => window.removeEventListener("mousemove", moveCursor);
   }, []);
 
+  const handleLoadMore = () => {
+    setVisibleCount(filteredProjects.length); // show all filtered projects
+  };
+
   return (
     <>
       {/* Custom Cursor */}
@@ -78,8 +170,6 @@ const Project = () => {
 
         {/* TOP SECTION */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 pt-10 sm:pt-16">
-          
-          {/* LEFT – HEADING */}
           <div className="flex-1">
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
@@ -92,7 +182,6 @@ const Project = () => {
             </h1>
           </div>
 
-          {/* RIGHT – PARAGRAPH */}
           <div className="flex-1 md:max-w-[400px] mt-4 md:mt-0">
             <p
               onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
@@ -111,7 +200,7 @@ const Project = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => { setSelectedCategory(cat); setVisibleCount(10); }} // reset visible count on category change
               onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               className={`px-4 py-2 rounded-full border transition-all duration-300
@@ -126,26 +215,29 @@ const Project = () => {
         </div>
 
         {/* PROJECT GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
-          {filteredProjects.map((p) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10 mb-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+          {filteredProjects.slice(0, visibleCount).map((p) => (
             <div
               key={p.id}
               className="rounded-3xl overflow-hidden bg-[#0f0f0f] shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer relative group"
             >
-              {/* IMAGE */}
               <img
                 src={p.image}
                 alt={p.title}
                 className="w-full h-auto max-h-[400px] sm:max-h-[400px] md:max-h-[450px] lg:max-h-[500px] object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110 group-hover:opacity-80"
               />
 
-              {/* PROJECT TITLE & DESCRIPTION */}
               <div className="absolute bottom-4 left-4 text-white opacity-80">
-                <div className="text-lg sm:text-xl md:text-2xl font-semibold">{p.title}</div>
+                <div
+                  className="text-lg sm:text-xl md:text-2xl font-semibold"
+                  onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                >
+                  {p.title}
+                </div>
                 <div className="text-xs sm:text-sm md:text-base opacity-70 mt-1">{p.description}</div>
               </div>
 
-              {/* ICON */}
               <div
                 className="absolute top-4 right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white backdrop-blur-md flex items-center justify-center"
                 onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
@@ -155,8 +247,21 @@ const Project = () => {
               </div>
             </div>
           ))}
-        </div>
 
+          {/* EXPLORE MORE BUTTON */}
+          {visibleCount < filteredProjects.length && (
+            <div className="col-span-full flex justify-center mt-6">
+              <button
+                onClick={handleLoadMore}
+                onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                className="px-6 py-3 rounded-full bg-[#3C01FF] text-white font-semibold text-lg transition-all duration-300"
+              >
+                Explore More
+              </button>
+            </div>
+          )}
+        </div>
       </section>
     </>
   );
