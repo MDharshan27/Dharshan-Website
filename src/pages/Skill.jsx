@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import arrowIcon from "../assets/arrow.png";
 import certifications from "../data/certifications";
-import Stack from "../components/stack";
+import Stack from "../components/Stack";
 import Service from "../components/Service";
 
 const Skill = () => {
