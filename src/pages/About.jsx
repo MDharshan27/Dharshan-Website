@@ -142,7 +142,7 @@ const About = () => {
           <div className="bg-[#e8ff8a] rounded-3xl p-6 sm:p-10 flex flex-col justify-between relative w-full md:w-[800px] h-[400px] sm:h-[450px]">
             
             {/* Tags / Skills */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 mb-2"
+            <div className="flex flex-wrap gap-2 sm:gap-3"
                  onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
                  onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
@@ -153,7 +153,7 @@ const About = () => {
             </div>
 
             {/* Title */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2"
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold "
                 onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             >
