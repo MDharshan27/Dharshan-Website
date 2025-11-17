@@ -35,7 +35,7 @@ const Project = () => {
     {
       id: 4,
       title: "SOLOFOLIO",
-      category: "Mini Project",
+      category: "Mini Projects",
       description: "A small creative project demonstrating frontend skills.",
       image: Project4,
     },
@@ -48,7 +48,7 @@ const Project = () => {
       ? allProjects
       : allProjects.filter((p) => p.category === selectedCategory);
 
-  const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Project"];
+  const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Projects"];
 
   // Custom cursor follow effect
   useEffect(() => {
@@ -136,7 +136,7 @@ const Project = () => {
               <img
                 src={p.image}
                 alt={p.title}
-                className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover transition-transform duration-500 ease-out group-hover:scale-110 group-hover:opacity-80"
+                className="w-full h-auto max-h-[400px] sm:max-h-[400px] md:max-h-[450px] lg:max-h-[500px] object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110 group-hover:opacity-80"
               />
 
               {/* PROJECT TITLE & DESCRIPTION */}
@@ -147,11 +147,11 @@ const Project = () => {
 
               {/* ICON */}
               <div
-                className="absolute top-4 right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#3C01FF] backdrop-blur-md flex items-center justify-center"
+                className="absolute top-4 right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white backdrop-blur-md flex items-center justify-center"
                 onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               >
-                <span className="text-white text-lg sm:text-xl">↗</span>
+                <span className="text-black text-lg sm:text-xl">↗</span>
               </div>
             </div>
           ))}
