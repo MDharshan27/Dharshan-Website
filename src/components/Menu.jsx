@@ -127,7 +127,7 @@ const Menu = () => {
                   onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
                   onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
                 >
-                  <span className="text-black text-5xl md:text-7xl font-light tracking-tight leading-[85%] hover:text-gray-700 transition cursor-pointer">
+                  <span className="text-black text-5xl sm:text-5xl md:text-5xl lg:text-7xl font-light tracking-tight leading-[85%] hover:text-gray-700 transition cursor-pointer">
                     {link.label}
                   </span>
                 </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import CTA from "../components/CTA";
 
 import Project1 from "../assets/project1.jpg";
 import Project2 from "../assets/project1.jpg";
@@ -173,7 +174,7 @@ const Project = () => {
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="mt-6 sm:mt-10 md:mt-12 text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-tight sm:leading-snug md:leading-none tracking-tight"
+              className="mt-6 sm:mt-10 md:mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight  tracking-tight"
             >
               CRAFTING <br />
               DIGITAL <span className="text-[#3C01FF] px-1">PROJECTS</span> <br />
@@ -205,7 +206,7 @@ const Project = () => {
               className={`px-4 py-2 rounded-full border transition-all duration-300
                 ${selectedCategory === cat
                   ? "bg-[#3C01FF] text-white border-[#3C01FF]"
-                  : "bg-white text-black border-gray-300 hover:bg-[#3C01FF] hover:text-white"
+                  : "bg-white text-black border-gray-300 hover:bg-[#3C01FF] cursor-pointer hover:text-white"
                 }`}
             >
               {cat}
@@ -254,13 +255,14 @@ const Project = () => {
                 onClick={handleLoadMore}
                 onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
                 onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-                className="px-6 py-3 rounded-full bg-[#3C01FF] text-white font-semibold text-lg transition-all duration-300"
+                className="px-6 py-3 rounded-full bg-[#3C01FF] cursor-pointer text-white font-semibold text-lg transition-all duration-300"
               >
                 Explore More
               </button>
             </div>
           )}
         </div>
+        <CTA/>
       </section>
     </>
   );

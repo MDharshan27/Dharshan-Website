@@ -48,13 +48,13 @@ const Experience = () => {
       />
 
       {/* Main Layout */}
-      <section className="w-full min-h-screen py-16 flex flex-col md:flex-row items-start justify-between gap-12 px-0 p-6 sm:p-8 md:p-10">
+      <section className="w-full min-h-screen py-16 flex flex-col md:flex-row items-start justify-between gap-12 p-6 sm:p-8 md:p-10">
         {/* LEFT — Big Heading */}
         <div className="flex-1 w-full flex justify-start md:justify-start">
           <h1
             onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
             onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            className="text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[4rem] xl:text-[4.8rem] font-semibold leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight tracking-tight"
           >
             MY EXPERIENCE <br />
             IN <span className="text-[#3C01FF]" >SOFTWARE <br /> DEVELOPMENT</span> <br />

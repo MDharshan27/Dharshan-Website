@@ -46,12 +46,12 @@ const Education = () => {
         className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-9999 bg-black mix-blend-difference"
       />
 
-      <section className="w-full min-h-screen py-20 flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none px-0 p-6 sm:p-8 md:p-10">
+      <section className="w-full min-h-screen py-20 flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none p-6 sm:p-8 md:p-10">
         {/* Heading */}
         <h1
           onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
           onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-          className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.2rem] font-semibold text-center leading-snug md:leading-tight tracking-tight mb-16"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold text-center leading-snug md:leading-tight tracking-tight mb-16"
         >
           MY EDUCATION <span className="text-[#3C01FF]">JOURNEY</span>
         </h1>
