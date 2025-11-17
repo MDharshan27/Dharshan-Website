@@ -28,17 +28,13 @@ export default function Footer() {
     return () => window.removeEventListener("mousemove", moveCursor);
   }, []);
 
-  // Cursor hover functions
   const handleCursorEnter = (scale = 2) => {
-    const cursor = cursorRef.current;
-    if (cursor) gsap.to(cursor, { scale, duration: 0.3 });
+    if (cursorRef.current) gsap.to(cursorRef.current, { scale, duration: 0.3 });
   };
   const handleCursorLeave = () => {
-    const cursor = cursorRef.current;
-    if (cursor) gsap.to(cursor, { scale: 1, duration: 0.3 });
+    if (cursorRef.current) gsap.to(cursorRef.current, { scale: 1, duration: 0.3 });
   };
 
-  // Navigation
   const handleLinkClick = (path) => {
     window.location.href = path;
   };
@@ -53,31 +49,36 @@ export default function Footer() {
 
       <footer className="bg-black text-gray-300 px-6 lg:px-20 py-12 rounded-t-2xl mx-5 relative z-10">
         {/* Top Section */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 border-b border-gray-700 pb-8">
           
           {/* About Me */}
           <div>
-            <h3 className="text-white font-semibold mb-2"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            >About Me</h3>
+            <h3
+            className="text-white font-semibold mb-2 text-base md:text-lg sm:text-xl"
+            onMouseEnter={() => handleCursorEnter(1.5)}
+            onMouseLeave={handleCursorLeave}
+            >
+            About Me
+            </h3>
             <p
-              className="text-sm text-gray-300 cursor-default"
+              className="text-sm md:text-xs text-gray-300 leading-relaxed"
               onMouseEnter={() => handleCursorEnter(1.5)}
               onMouseLeave={handleCursorLeave}
             >
-              I am a passionate <span className="text-[#C3FE00] font-semibold">Full-Stack Developer</span> 
-              specializing in web and mobile applications. Continuously learning and building innovative solutions.
+              I am a passionate <span className="text-[#C3FE00] font-semibold">Full-Stack Developer</span> specializing in web and mobile applications. Continuously learning and building innovative solutions.
             </p>
           </div>
 
           {/* Projects */}
           <div>
-            <h3 className="text-white font-semibold mb-4"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            >Projects</h3>
-            <ul className="space-y-2 text-sm">
+            <h3
+              className="text-white font-semibold mb-2 text-base md:text-lg sm:text-xl"
+              onMouseEnter={() => handleCursorEnter(1.5)}
+              onMouseLeave={handleCursorLeave}
+            >
+              Projects
+            </h3>
+            <ul className="space-y-2 text-sm md:text-xs">
               {["Web Development", "App Development", "Desktop App Development", "Mini Projects"].map(
                 (item, idx) => (
                   <li
@@ -96,11 +97,14 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h3 className="text-white font-semibold mb-4"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            >Explore</h3>
-            <ul className="space-y-2 text-sm">
+            <h3
+              className="text-white font-semibold mb-2 text-base md:text-lg sm:text-xl"
+              onMouseEnter={() => handleCursorEnter(1.5)}
+              onMouseLeave={handleCursorLeave}
+            >
+              Explore
+            </h3>
+            <ul className="space-y-2 text-sm md:text-xs">
               {footerLinks.map((link, idx) => (
                 <li
                   key={idx}
@@ -117,10 +121,13 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-            >Contact</h3>
+            <h3
+              className="text-white font-semibold mb-2 text-base md:text-lg sm:text-xl"
+              onMouseEnter={() => handleCursorEnter(1.5)}
+              onMouseLeave={handleCursorLeave}
+            >
+              Contact
+            </h3>
             {[
               { text: "Email: santhosmd69@gmail.com", href: "mailto:santhosmd69@gmail.com" },
               { text: "Phone: +94 77 8597 438", href: "tel:+94778597438" },
@@ -130,7 +137,7 @@ export default function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm cursor-pointer hover:text-white"
+                className="block text-sm md:text-xs cursor-pointer hover:text-white"
                 onMouseEnter={() => handleCursorEnter()}
                 onMouseLeave={handleCursorLeave}
               >
@@ -141,13 +148,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="max-w-7xl mx-auto mt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 space-y-4 md:space-y-0">
+        <div className="max-w-7xl mx-auto mt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 space-y-4 sm:space-y-0">
           <p>© 2025 Mohana Dharshan</p>
 
-          <div className="flex space-x-4 text-[#C3FE00] text-base"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-          >
+          <div className="flex space-x-4 text-[#C3FE00] text-base">
             {[
               { icon: <FaWhatsapp />, href: "https://wa.me/94778597438" },
               { icon: <FaGithub />, href: "https://github.com/MDharshan27" },
