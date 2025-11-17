@@ -46,7 +46,7 @@ const Education = () => {
         className="fixed top-0 left-0 w-[25px] h-[25px] rounded-full pointer-events-none z-9999 bg-black mix-blend-difference"
       />
 
-      <section className="w-full min-h-screen py-20 flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none p-6 sm:p-8 md:p-10">
+      <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#FDFDFD] cursor-none p-6 sm:p-8 md:p-10">
         {/* Heading */}
         <h1
           onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
