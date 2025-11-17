@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import CTA from "../components/CTA";
 
-// IMPORT YOUR IMAGES
 import Project1 from "../assets/project1.jpg";
 import Project2 from "../assets/project1.jpg";
 import Project3 from "../assets/project1.jpg";
@@ -131,7 +131,7 @@ const Project = () => {
 
   const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Projects"];
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(10); // initially show 10 projects
+  const [visibleCount, setVisibleCount] = useState(10);
 
   const filteredProjects =
     selectedCategory === "All"
@@ -154,7 +154,7 @@ const Project = () => {
   }, []);
 
   const handleLoadMore = () => {
-    setVisibleCount(filteredProjects.length); // show all filtered projects
+    setVisibleCount(filteredProjects.length);
   };
 
   return (
@@ -169,12 +169,12 @@ const Project = () => {
       <section className="w-full min-h-screen bg-white text-black flex flex-col">
 
         {/* TOP SECTION */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 pt-10 sm:pt-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 p-6 sm:p-8 md:p-10">
           <div className="flex-1">
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-tight sm:leading-snug md:leading-none tracking-tight"
+              className="mt-6 sm:mt-10 md:mt-12 text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-tight sm:leading-snug md:leading-none tracking-tight"
             >
               CRAFTING <br />
               DIGITAL <span className="text-[#3C01FF] px-1">PROJECTS</span> <br />
@@ -196,11 +196,11 @@ const Project = () => {
         </div>
 
         {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+        <div className="flex flex-wrap justify-center md:justify-start gap-8 p-6 sm:p-8 md:p-10">
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => { setSelectedCategory(cat); setVisibleCount(10); }} // reset visible count on category change
+              onClick={() => { setSelectedCategory(cat); setVisibleCount(10); }} 
               onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               className={`px-4 py-2 rounded-full border transition-all duration-300
@@ -215,7 +215,7 @@ const Project = () => {
         </div>
 
         {/* PROJECT GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10 mb-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-6 sm:p-8 md:p-10">
           {filteredProjects.slice(0, visibleCount).map((p) => (
             <div
               key={p.id}
@@ -262,6 +262,7 @@ const Project = () => {
             </div>
           )}
         </div>
+        <CTA/>
       </section>
     </>
   );
