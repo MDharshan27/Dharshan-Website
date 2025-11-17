@@ -1,138 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import CTA from "../components/CTA";
-
-import Project1 from "../assets/project1.jpg";
-import Project2 from "../assets/project1.jpg";
-import Project3 from "../assets/project1.jpg";
-import Project4 from "../assets/project1.jpg";
-import Project5 from "../assets/project1.jpg";
-import Project6 from "../assets/project1.jpg";
-import Project7 from "../assets/project1.jpg";
-import Project8 from "../assets/project1.jpg";
-import Project9 from "../assets/project1.jpg";
-import Project10 from "../assets/project1.jpg";
-import Project11 from "../assets/project1.jpg";
-import Project12 from "../assets/project1.jpg";
-import Project13 from "../assets/project1.jpg";
-import Project14 from "../assets/project1.jpg";
-import Project15 from "../assets/project1.jpg";
+import { allProjects } from "../data/projects"; // import from data folder
 
 const Project = () => {
   const cursorRef = useRef(null);
-
-  const allProjects = [
-    {
-      id: 1,
-      title: "SOLOFOLIO",
-      category: "Web Design",
-      description: "A personal portfolio website showcasing creative web designs.",
-      image: Project1,
-    },
-    {
-      id: 2,
-      title: "UIbase",
-      category: "Mobile App",
-      description: "A mobile UI library for fast and consistent app development.",
-      image: Project2,
-    },
-    {
-      id: 3,
-      title: "UIbase",
-      category: "Desktop App",
-      description: "Desktop application with intuitive interface for productivity.",
-      image: Project3,
-    },
-    {
-      id: 4,
-      title: "SOLOFOLIO Mini",
-      category: "Mini Projects",
-      description: "A small creative project demonstrating frontend skills.",
-      image: Project4,
-    },
-    {
-      id: 5,
-      title: "MarketFlow",
-      category: "Web Design",
-      description: "E-commerce platform with a responsive and modern layout.",
-      image: Project5,
-    },
-    {
-      id: 6,
-      title: "TravelMate",
-      category: "Mobile App",
-      description: "A mobile app for planning and booking travel itineraries.",
-      image: Project6,
-    },
-    {
-      id: 7,
-      title: "TaskMaster",
-      category: "Desktop App",
-      description: "Productivity desktop app with task tracking and notifications.",
-      image: Project7,
-    },
-    {
-      id: 8,
-      title: "Weatherly",
-      category: "Mini Projects",
-      description: "A mini project showing live weather data using an API.",
-      image: Project8,
-    },
-    {
-      id: 9,
-      title: "CryptoDash",
-      category: "Web Design",
-      description: "Dashboard website to track cryptocurrency prices in real-time.",
-      image: Project9,
-    },
-    {
-      id: 10,
-      title: "FitTrack",
-      category: "Mobile App",
-      description: "Fitness tracker mobile app with goal setting and statistics.",
-      image: Project10,
-    },
-    {
-      id: 11,
-      title: "NoteHub",
-      category: "Desktop App",
-      description: "Desktop note-taking app with markdown support and sync.",
-      image: Project11,
-    },
-    {
-      id: 12,
-      title: "MiniQuiz",
-      category: "Mini Projects",
-      description: "A small quiz app demonstrating interactive JavaScript features.",
-      image: Project12,
-    },
-    {
-      id: 13,
-      title: "ShopEase",
-      category: "Web Design",
-      description: "Modern e-commerce website with smooth UI and cart features.",
-      image: Project13,
-    },
-    {
-      id: 14,
-      title: "RecipeGo",
-      category: "Mobile App",
-      description: "Mobile app that provides easy-to-follow recipes and shopping lists.",
-      image: Project14,
-    },
-    {
-      id: 15,
-      title: "MiniPaint",
-      category: "Mini Projects",
-      description: "A small interactive drawing app built with HTML5 canvas.",
-      image: Project15,
-    },
-  ];
-
   const categories = ["All", "Web Design", "Mobile App", "Desktop App", "Mini Projects"];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(10);
 
+  // Filter projects based on selected category
   const filteredProjects =
     selectedCategory === "All"
       ? allProjects
@@ -167,7 +44,6 @@ const Project = () => {
       />
 
       <section className="w-full min-h-screen bg-white text-black flex flex-col">
-
         {/* TOP SECTION */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 p-6 sm:p-8 md:p-10">
           <div className="flex-1">
@@ -200,13 +76,13 @@ const Project = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => { setSelectedCategory(cat); setVisibleCount(10); }} 
+              onClick={() => { setSelectedCategory(cat); setVisibleCount(10); }}
               onMouseEnter={() => gsap.to("#cursor", { scale: 1.5, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
               className={`px-4 py-2 rounded-full border transition-all duration-300
                 ${selectedCategory === cat
                   ? "bg-[#3C01FF] text-white border-[#3C01FF]"
-                  : "bg-white text-black border-gray-300 hover:bg-[#3C01FF] cursor-pointer hover:text-white"
+                  : "bg-white text-black border-gray-300 hover:bg-[#3C01FF] hover:text-white cursor-pointer"
                 }`}
             >
               {cat}
@@ -262,7 +138,8 @@ const Project = () => {
             </div>
           )}
         </div>
-        <CTA/>
+
+        <CTA />
       </section>
     </>
   );

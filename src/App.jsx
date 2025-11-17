@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Skill from "./pages/Skill";
 import Projects from "./pages/Project";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        <Footer/>
       </CustomScrollbar>
     </Router>
   );
