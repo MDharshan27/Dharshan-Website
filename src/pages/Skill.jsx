@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import arrowIcon from "../assets/arrow.png";
 import certifications from "../data/certifications";
+import Stack from "../components/stack";
+import Service from "../components/Service";
 
 const Skill = () => {
   useEffect(() => {
@@ -60,8 +62,12 @@ const Skill = () => {
               {/* Certification Header */}
               <div
                 className="flex justify-between items-center p-4 bg-gray-100 hover:bg-gray-200 transition"
-                onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
-                onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+                onMouseEnter={() =>
+                  gsap.to("#cursor", { scale: 2, duration: 0.3 })
+                }
+                onMouseLeave={() =>
+                  gsap.to("#cursor", { scale: 1, duration: 0.3 })
+                }
               >
                 <span className="font-medium text-lg">{cert.name}</span>
                 <img
@@ -88,13 +94,21 @@ const Skill = () => {
                   />
                   <div className="flex-1">
                     <p className="text-gray-700 mb-2">{cert.description}</p>
-                    <p className="text-sm text-gray-500">Certificate ID: {cert.id}</p>
+                    <p className="text-sm text-gray-500">
+                      Certificate ID: {cert.id}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="w-full bg-[#FDFDFD] p-0 m-0">
+        <Stack />
+        <Service/>
       </section>
     </>
   );

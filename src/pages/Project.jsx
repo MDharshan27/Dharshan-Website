@@ -174,7 +174,7 @@ const Project = () => {
             <h1
               onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
               onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-              className="mt-6 sm:mt-10 md:mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight  tracking-tight"
+              className="mt-6 sm:mt-10 md:mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight tracking-tight"
             >
               CRAFTING <br />
               DIGITAL <span className="text-[#3C01FF] px-1">PROJECTS</span> <br />
