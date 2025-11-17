@@ -52,10 +52,10 @@ const Experience = () => {
             onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
             className="text-left text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.5rem] font-semibold leading-snug md:leading-tight tracking-tight mt-0"
           >
-            MY EXPERIENCE <br />
-            IN <br />
-            <span className="text-[#3C01FF]">SOFTWARE DEVELOPMENT</span> <br />
-            & DESIGN
+            MY <br />
+            EXPERIENCE <br />
+            IN <span className="text-[#3C01FF]">SOFTWARE <br /> DEVELOPMENT</span> <br />
+            & <br /> DESIGN
           </h1>
         </div>
         
