@@ -136,10 +136,10 @@ const Menu = () => {
           <div className="flex flex-col md:flex-row justify-between md:space-x-8 mt-10 md:mt-0">
             <div className="flex flex-col space-y-2">
               {[
-                { label: "X ↗", url: "https://twitter.com/yourhandle" },
-                { label: "Instagram ↗", url: "https://instagram.com/yourhandle" },
-                { label: "LinkedIn ↗", url: "https://linkedin.com/in/yourhandle" },
-                { label: "GitHub ↗", url: "https://github.com/yourhandle" },
+                { label: "FaceBook ↗", url: "https://www.facebook.com/share/1D76ju9FaL/" },
+                { label: "Instagram ↗", url: "https://www.instagram.com/s.k.m.dharshan?igsh=NnBma3QzdnEwdGoy" },
+                { label: "LinkedIn ↗", url: "https://www.linkedin.com/in/mdharshan" },
+                { label: "GitHub ↗", url: "https://github.com/MDharshan27" },
                 { label: "WhatsApp ↗", url: "https://wa.me/94778597438" },
               ].map((social, i) => (
                 <a

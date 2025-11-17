@@ -14,7 +14,7 @@ const ServiceCard = ({ title, description, image }) => {
       className="relative group w-full h-64 rounded-xl overflow-hidden shadow-md cursor-pointer"
       onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
       onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
-      onClick={() => setActive(!active)} // toggle overlay on click for mobile/tablet
+      onClick={() => setActive(!active)}
     >
       {/* Image */}
       <img
