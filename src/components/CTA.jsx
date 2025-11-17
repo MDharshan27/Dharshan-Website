@@ -11,8 +11,8 @@ const CTA = () => {
           onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
           className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight tracking-tight"
         >
-          Let’s talk about a <br />
-          <span className="text-[#3C01FF] px-1">project, collaboration</span> or <br />
+          Let’s talk about a<br />
+          a <span className="text-[#3C01FF] px-1">project, collaboration</span> or <br />
           an idea you may have.
         </h1>
       </div>
