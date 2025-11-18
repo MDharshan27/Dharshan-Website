@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import WebDevImg from "../assets/services/webdev.jpg";
 import UIUXImg from "../assets/services/uiux.jpg";
 import MobileImg from "../assets/services/mobile.jpg";
+import DesktopImg from "../assets/services/desktop.jpg";
 import BackendImg from "../assets/services/backend.jpg";
 import DatabaseImg from "../assets/services/database.jpg";
 import { gsap } from "gsap";
@@ -72,6 +73,11 @@ const Service = () => {
       title: "Mobile Apps",
       description: "Building cross-platform mobile apps with seamless performance.",
       image: MobileImg,
+    },
+    {
+      title: "Desktop Apps",
+      description: "Developing powerful and efficient desktop applications with seamless performance.",
+      image: DesktopImg,
     },
     {
       title: "Backend Development",
