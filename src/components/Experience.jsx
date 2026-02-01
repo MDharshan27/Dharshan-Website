@@ -65,7 +65,7 @@ const Experience = () => {
         {/* RIGHT — Cards */}
         <div className="flex flex-col gap-6 w-full md:w-[520px] lg:w-[560px]">
           <ExperienceCard
-            period="PRESENT"
+            period="NOV 2025 - FEB 2026"
             company="DevGriffins"
             role="Junior Full Stack Developer"
             description="Contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
