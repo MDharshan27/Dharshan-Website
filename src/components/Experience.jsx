@@ -67,7 +67,7 @@ const Experience = () => {
           <ExperienceCard
             period="PRESENT"
             company="DevGriffins"
-            role="Intern, Frontend Web & Development Team"
+            role="Junior Full Stack Developer"
             description="Contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
           />
 
