@@ -3,6 +3,9 @@ import { gsap } from "gsap";
 
 const Cursor = () => {
   useEffect(() => {
+    // Disable on mobile & touch devices
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
 
@@ -19,13 +22,17 @@ const Cursor = () => {
   }, []);
 
   return (
-    <>
-      {/* Custom Cursor */}
-      <div
-        id="cursor"
-        className="fixed top-0 left-0 h-[25px] w-[25px] bg-white rounded-full z-50 pointer-events-none mix-blend-difference"
-      />
-    </>
+    <div
+      id="cursor"
+      className="
+        fixed top-0 left-0
+        h-[25px] w-[25px]
+        bg-white rounded-full
+        z-50 pointer-events-none
+        mix-blend-difference
+        hidden md:block
+      "
+    />
   );
 };
 
