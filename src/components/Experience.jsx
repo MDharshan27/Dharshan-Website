@@ -72,8 +72,8 @@ const Experience = () => {
           />
 
           <ExperienceCard
-            period="2025 – PRESENT"
-            company="HustleMind Co."
+            period="2024 – PRESENT"
+            company="XENO Solutions"
             role="Freelance Software Developer"
             description="Co-founded a freelance team delivering custom web and mobile solutions for small businesses. Work includes full-stack projects, client communication, and source control."
           />
