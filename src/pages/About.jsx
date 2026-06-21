@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import starImage from "../assets/star.png";
-import topBoxImage from "../assets/man.jpg";
+import topBoxImage from "../assets/man_2.jpg";
 import arrowImage from "../assets/arrow.png";
 import Experience from "../components/Experience";
 import Education from "../components/Education";
