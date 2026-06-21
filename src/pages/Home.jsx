@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import heroImage from "../assets/man.jpg";
+import heroMobile from "../assets/man-mobile.jpg";
 
 const Home = () => {
   useEffect(() => {
@@ -60,12 +61,34 @@ const Home = () => {
         </div>
 
         {/* ===== Section 2: Hero Image ===== */}
-          <div className="w-full relative flex justify-start items-center overflow-hidden">
+          <div className="w-full relative overflow-hidden">
+
+            {/* Mobile Only */}
+            <img
+              src={heroMobile}
+              alt="Developer"
+              className="
+                block md:hidden
+                w-full
+                h-[70vh]
+                object-cover
+                object-center
+              "
+            />
+
+            {/* Tablet + Laptop + Desktop */}
             <img
               src={heroImage}
               alt="Developer"
-              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover object-right"
+              className="
+                hidden md:block
+                w-full
+                h-[80vh] lg:h-screen
+                object-cover
+                object-center
+              "
             />
+
           </div>
 
           {/* ===== Section 3: Text Content ===== */}
