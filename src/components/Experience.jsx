@@ -65,19 +65,19 @@ const Experience = () => {
         {/* RIGHT — Cards */}
         <div className="flex flex-col gap-6 w-full md:w-[520px] lg:w-[560px]">
           <ExperienceCard
-            period="NOV 2025 - FEB 2026"
-            company="DevGriffins"
-            role="Junior Full Stack Developer"
-            description="Contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
-          />
-
-          <ExperienceCard
             period="2024 – PRESENT"
             company="XENO Solutions"
             role="Freelance Software Developer"
             description="Co-founded a freelance team delivering custom web and mobile solutions for small businesses. Work includes full-stack projects, client communication, and source control."
           />
-
+          
+          <ExperienceCard
+            period="NOV 2025 - FEB 2026"
+            company="DevGriffins"
+            role="Junior Full Stack Developer"
+            description="Contributing as a volunteer and intern developer, focusing on frontend web development and team collaboration on live projects."
+          />
+          
           <ExperienceCard
             period="DEC 2023 – FEB 2024"
             company="CosmicCommerce"
