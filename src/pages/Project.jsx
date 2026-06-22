@@ -63,9 +63,9 @@ const Project = () => {
 
           return {
             id: repo.id,
-            title: repo.name,
-            description:
-              repo.description || "No description available",
+            // title: repo.name,
+            // description:
+            //   repo.description || "No description available",
 
             image: `https://opengraph.githubassets.com/1/MDharshan27/${repo.name}`,
 
