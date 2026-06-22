@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import CTA from "../components/CTA";
-import { allProjects } from "../data/projects";
 
 const Project = () => {
   const cursorRef = useRef(null);
-  const gridRef = useRef(null); // 👈 project grid ref
+  const gridRef = useRef(null);
 
   const categories = [
     "All",
@@ -15,26 +14,98 @@ const Project = () => {
     "Mini Projects",
   ];
 
+  const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 6;
 
-  // Filter projects
+  // =========================
+  // GITHUB FETCH (TOPICS FIXED)
+  // =========================
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch(
+          "https://api.github.com/users/MDharshan27/repos"
+        );
+
+        const data = await res.json();
+
+        const formattedProjects = data.map((repo) => {
+          const topics = repo.topics || [];
+
+          // -------------------------
+          // CATEGORY FROM TOPICS
+          // -------------------------
+          let category = "Web Design";
+
+          if (
+            topics.includes("mobile") ||
+            topics.includes("android") ||
+            topics.includes("flutter")
+          ) {
+            category = "Mobile App";
+          } else if (
+            topics.includes("desktop") ||
+            topics.includes("electron")
+          ) {
+            category = "Desktop App";
+          } else if (
+            topics.includes("mini") ||
+            topics.includes("practice") ||
+            topics.includes("demo")
+          ) {
+            category = "Mini Projects";
+          } else {
+            category = "Web Design";
+          }
+
+          return {
+            id: repo.id,
+            title: repo.name,
+            description:
+              repo.description || "No description available",
+
+            image: `https://opengraph.githubassets.com/1/MDharshan27/${repo.name}`,
+
+            category,
+
+            github: repo.html_url,
+          };
+        });
+
+        setProjects(formattedProjects);
+      } catch (error) {
+        console.log("GitHub API error:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  // =========================
+  // FILTER LOGIC (UNCHANGED)
+  // =========================
   const filteredProjects =
     selectedCategory === "All"
-      ? allProjects
-      : allProjects.filter((p) => p.category === selectedCategory);
+      ? projects
+      : projects.filter(
+          (p) => p.category === selectedCategory
+        );
 
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+  const totalPages = Math.ceil(
+    filteredProjects.length / itemsPerPage
+  );
 
   const paginatedProjects = filteredProjects.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // Custom cursor
+  // =========================
+  // CURSOR (UNCHANGED)
+  // =========================
   useEffect(() => {
     const cursor = cursorRef.current;
 
@@ -48,12 +119,14 @@ const Project = () => {
     };
 
     window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
+
+    return () =>
+      window.removeEventListener("mousemove", moveCursor);
   }, []);
 
   return (
     <>
-      {/* Custom Cursor */}
+      {/* CUSTOM CURSOR (UNCHANGED) */}
       <div
         id="cursor"
         ref={cursorRef}
@@ -61,12 +134,18 @@ const Project = () => {
       />
 
       <section className="w-full min-h-screen bg-white text-black flex flex-col">
-        {/* TOP SECTION */}
+
+        {/* TOP SECTION (UNCHANGED) */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 p-6 sm:p-8 md:p-10">
+
           <div className="flex-1">
             <h1
-              onMouseEnter={() => gsap.to("#cursor", { scale: 3, duration: 0.3 })}
-              onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              onMouseEnter={() =>
+                gsap.to("#cursor", { scale: 3, duration: 0.3 })
+              }
+              onMouseLeave={() =>
+                gsap.to("#cursor", { scale: 1, duration: 0.3 })
+              }
               className="mt-6 sm:mt-10 md:mt-12 text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] font-semibold leading-tight tracking-tight"
             >
               CRAFTING <br />
@@ -77,8 +156,12 @@ const Project = () => {
 
           <div className="flex-1 md:max-w-[400px] mt-4 md:mt-0">
             <p
-              onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
-              onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              onMouseEnter={() =>
+                gsap.to("#cursor", { scale: 2, duration: 0.3 })
+              }
+              onMouseLeave={() =>
+                gsap.to("#cursor", { scale: 1, duration: 0.3 })
+              }
               className="text-gray-600 text-base sm:text-lg leading-relaxed"
             >
               Explore a curated selection of my latest digital creations —
@@ -88,7 +171,7 @@ const Project = () => {
           </div>
         </div>
 
-        {/* FILTER BUTTONS */}
+        {/* FILTER BUTTONS (UNCHANGED) */}
         <div className="flex flex-wrap justify-center md:justify-start gap-4 p-6 sm:p-8 md:p-10">
           {categories.map((cat) => (
             <button
@@ -104,7 +187,9 @@ const Project = () => {
               onMouseEnter={() =>
                 gsap.to("#cursor", { scale: 1.5, duration: 0.3 })
               }
-              onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+              onMouseLeave={() =>
+                gsap.to("#cursor", { scale: 1, duration: 0.3 })
+              }
               className={`px-4 py-2 rounded-full border transition-all duration-300
                 ${
                   selectedCategory === cat
@@ -117,14 +202,17 @@ const Project = () => {
           ))}
         </div>
 
-        {/* PROJECT GRID */}
+        {/* PROJECT GRID (UNCHANGED) */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-6 sm:p-8 md:p-10"
         >
           {paginatedProjects.map((p) => (
-            <div
+            <a
               key={p.id}
+              href={p.github}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-3xl overflow-hidden bg-[#0f0f0f] shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer relative group"
             >
               <img
@@ -134,15 +222,7 @@ const Project = () => {
               />
 
               <div className="absolute bottom-4 left-4 text-white opacity-80">
-                <div
-                  className="text-lg sm:text-xl md:text-2xl font-semibold"
-                  onMouseEnter={() =>
-                    gsap.to("#cursor", { scale: 2, duration: 0.3 })
-                  }
-                  onMouseLeave={() =>
-                    gsap.to("#cursor", { scale: 1, duration: 0.3 })
-                  }
-                >
+                <div className="text-lg sm:text-xl md:text-2xl font-semibold">
                   {p.title}
                 </div>
                 <div className="text-xs sm:text-sm md:text-base opacity-70 mt-1">
@@ -161,11 +241,11 @@ const Project = () => {
               >
                 <span className="text-black text-lg sm:text-xl">↗</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
-        {/* PAGINATION */}
+        {/* PAGINATION (UNCHANGED) */}
         {totalPages > 1 && (
           <div className="flex justify-center gap-3 mt-6 mb-10">
             {Array.from({ length: totalPages }).map((_, index) => {
